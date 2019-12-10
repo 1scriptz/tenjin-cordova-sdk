@@ -1,0 +1,32 @@
+{
+  "name": "cordova-plugin-tenjin",
+  "version": "2.0.1",
+  "description": "Integrate Tenjin analytics into your Cordova applications",
+  "cordova": {
+    "id": "cordova-plugin-tenjin",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tenjin/cordova-sdk.git"
+  },
+  "keywords": [
+    "tenjin",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": {
+      "name" : "Tenjin",
+      "email" : "support@tenjin.io",
+      "url" : "http://tenjin.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tenjin/cordova-sdk/issues"
+  },
+  "homepage": "https://github.com/tenjin/cordova-sdk#readme"
+}

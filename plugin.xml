@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-tenjin" version="2.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Tenjin</name>
+    <js-module name="tenjin" src="www/tenjin.js">
+        <clobbers target="tenjin" />
+    </js-module>
+
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/widget">
+            <feature name="Tenjin">
+                <param name="ios-package" value="TenjinPlugin" onload="true"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/TenjinPlugin.h" target-dir="TenjinPlugin" />
+        <source-file src="src/ios/TenjinPlugin.m" target-dir="TenjinPlugin" />
+
+        <framework src="TenjinSDK" type="podspec" spec="~> 1.7.8"/>
+
+    </platform>
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="Tenjin">
+                <param name="android-package" value="io.tenjin.cordova.TenjinPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="com.google.android.gms.version"
+                       android:value="@integer/google_play_services_version" />
+            <receiver android:name="com.tenjin.android.TenjinReferrerReceiver" android:exported="true">
+                <intent-filter>
+                    <action android:name="com.android.vending.INSTALL_REFERRER"/>
+                </intent-filter>
+            </receiver>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+
+        <source-file src="src/android/TenjinPlugin.java" target-dir="src/io/tenjin/cordova"/>
+
+        <framework src="com.google.android.gms:play-services-ads:15.0.1" />
+        <framework src="com.google.android.gms:play-services-base:15.0.1" />
+        <framework src="com.android.installreferrer:installreferrer:1.0" />
+
+        <lib-file src="lib/tenjin.jar" />
+
+    </platform>
+
+</plugin>
